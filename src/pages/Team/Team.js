@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 import svg from '../../images/svg.svg'
 import { Wrap, Wrapper, TeamList } from './Team.style'
 import teambg from '../../images/teambg.jpg'
 import { makeLocalURLwithLocale } from "../../helpers/locationUtils"
 import { Link } from 'react-router-dom'
 
-export class Team extends Component {
-    render() {
-        const { langID } = this.props;
+const Team = React.memo(
+    (props) => {
+        const { langID } = props;
         const careersURL = makeLocalURLwithLocale('/careers', langID);
         return (
             <Wrap>
@@ -51,14 +51,7 @@ export class Team extends Component {
                             <div>Alisa Gazaryan</div>
                             <p>Head of Human Recoursec</p>
                         </div>
-                        <div className='workers'>
-                            <div className='box6'>
-                                <div className="bg6 test"></div>
-                                <div className="flip6"></div>
-                            </div>
-                            <div>Karen Melikyan</div>
-                            <p>Head of Marketing Department</p>
-                        </div>
+
                         <div className='workers'>
                             <div className='box8'>
                                 <div className="bg8 test"></div>
@@ -125,9 +118,8 @@ export class Team extends Component {
                     </div>
                 </TeamList>
             </Wrap>
-
         )
     }
-}
+)
 
 export default Team;

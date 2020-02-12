@@ -6,8 +6,6 @@ import armen from '../../images/armen.png'
 import dan from '../../images/dan.png'
 import gev from '../../images/gev.png'
 import harut from '../../images/harut.png'
-import karen from '../../images/karen.png'
-import karine from '../../images/karine.png'
 import lilit from '../../images/lilit.png'
 import minas from '../../images/minas.png'
 import nelly from '../../images/nelly.png'
@@ -21,7 +19,6 @@ import Dan2 from '../../images/Dan2.png'
 import Gev2 from '../../images/Gev2.png'
 import Gevorg2 from '../../images/Gevorg2.png'
 import Harut2 from '../../images/Harut2.png'
-import Karen2 from '../../images/Karen2.png'
 import Lena2 from '../../images/Lena2.png'
 import Lilit2 from '../../images/Lilit2.png'
 import Nelly2 from '../../images/Nelly2.png'
@@ -488,17 +485,11 @@ h1{
     .bg2{
         background-image: url(${rema});
     }
-    .bg3{
-        background-image: url(${karine});
-    }
     .bg4{ 
         background-image: url(${alice});
     }
     .bg5{
         background-image: url(${tiko});
-    }
-    .bg6{
-        background-image: url(${karen});
     }
     .bg7{
         background-image: url(${nelly});
@@ -577,18 +568,6 @@ h1{
     }
 
     .flip5 {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-repeat: no-repeat;
-        background-position:  center;
-        background-size: cover;
-        z-index: 0;
-    }
-
-    .flip6 {
         position: absolute;
         left: 0;
         top: 0;
@@ -720,12 +699,6 @@ h1{
     background-image: url(${Rema2});
   }
 
-  .box3:hover .flip3 {
-    animation: bgChanges .4s .1s linear forwards;
-    opacity: 0;
-    background-image: url(${karine});
-  }
-
   .box4:hover .flip4 {
     animation: bgChanges .4s .1s linear forwards;
     opacity: 0;
@@ -736,12 +709,6 @@ h1{
     animation: bgChanges .4s .1s linear forwards;
     opacity: 0;
     background-image: url(${tiko});
-  }
-
-  .box6:hover .flip6 {
-    animation: bgChanges .4s .1s linear forwards;
-    opacity: 0;
-    background-image: url(${Karen2});
   }
 
   .box7:hover .flip7 {

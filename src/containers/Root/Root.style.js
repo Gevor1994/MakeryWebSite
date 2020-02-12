@@ -10,7 +10,6 @@ const RootWrapper = withTheme(styled.div`
 	.fix-head {
 		top: 0;
 		z-index: 10;
-		
 	}
 `);
 
@@ -29,8 +28,8 @@ export const Main = styled.div`
 	position: absolute;
 	height: auto;
 	width: 100%;
-
-	
 `;
+
+
 
 export default RootWrapper;

@@ -1,4 +1,4 @@
-import React, { PureComponent, Suspense, lazy } from 'react';
+import React, { PureComponent } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 import { connect } from 'react-redux';
@@ -10,7 +10,8 @@ import { getCurrentLanguage } from '../languageProvider/config';
 import { restoreData, storeData } from '../helpers/localStorageUtils';
 import { getLangID, checkIsRefreshToken } from '../helpers/locationUtils';
 import appActions from '../redux/app/actions';
-const Root = lazy(() => import('../containers/Root'));
+import Root from '../containers/Root';
+// const Root = lazy(() => import('../containers/Root'));
 
 class PublicRoutes extends PureComponent {
 
@@ -19,13 +20,11 @@ class PublicRoutes extends PureComponent {
 
 		const langID = getLangID(window.location.pathname);
 		storeData('langID', langID);
-
 		this.isRefreshToken = checkIsRefreshToken();
 	}
 
 	componentDidMount() {
 		const { appStarted, appStart, changeLanguage } = this.props;
-
 		changeLanguage(restoreData('langID') || config.defaultLanguage);
 		if (!appStarted) {
 			appStart(this.isRefreshToken);
@@ -41,16 +40,14 @@ class PublicRoutes extends PureComponent {
 
 		return (
 			<IntlProvider locale={locale} messages={messages} key={locale}>
-				<Suspense fallback={<div />}>
-					<ConnectedRouter history={history}>
-						<Switch>
-							<Route path="/arm" render={props => (<Root {...props} {...rootProps} />)} />
-							<Route path="/en" render={props => (<Root {...props} {...rootProps} />)} />
-							<Route path="/ru" render={props => (<Root {...props} {...rootProps} />)} />
-							<Route path="/" render={() => (<Redirect to={{ pathname: `/${config.defaultLocale}` }} />)} />
-						</Switch>
-					</ConnectedRouter>
-				</Suspense>
+				<ConnectedRouter history={history}>
+					<Switch>
+						{/*<Route path="/arm" render={props => (<Root {...props} {...rootProps} />)}/>*/}
+						{/*<Route path="/ru" render={props => (<Root {...props} {...rootProps} />)}/>*/}
+						<Route path="/en" render={props => (<Root {...props} {...rootProps} />)}/>
+						<Route path="/" render={(props) => (<Redirect to={{pathname: `/${config.defaultLocale}`}}/>)}/>
+					</Switch>
+				</ConnectedRouter>
 			</IntlProvider>
 		);
 	}

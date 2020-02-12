@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux';
+import React from 'react'
 import { Wrap, Wrapper, Values, History } from './Who.style'
 import svg from '../../images/svg.svg'
 import bulb from '../../images/bulb.svg'
@@ -10,8 +9,8 @@ import people from '../../images/people.svg'
 import shook from '../../images/shook.svg'
 import who from '../../images/who.jpg'
 
-export class Who extends Component {
-    render() {
+const Who = React.memo(
+    () => {
         return (
             <Wrap>
                 <Wrapper>
@@ -22,7 +21,7 @@ export class Who extends Component {
                             <div className="banner_style">
                                 <p className='busy'>BUSINESS AND DIGITAL COLLABORATION</p>
                                 <h2> We <span>DREAMED</span> and <span>MADE</span> </h2>
-                            </div> 
+                            </div>
                             <div className="context">Our VISION is to decrease the development gap trends between the technology and human. Our MISSION is to support companies, enterprises and individuals to adapt their business to the current global digitalized world.</div>
                         </div>
                     </div>
@@ -149,10 +148,6 @@ export class Who extends Component {
             </Wrap>
         )
     }
-}
+)
 
-export default connect(
-    ({ App }) => ({
-        langID: App.get('langID'),
-    })
-)(Who);
+export default Who;

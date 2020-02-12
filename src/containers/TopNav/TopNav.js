@@ -1,4 +1,4 @@
-import React, { Component, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import BottomBar from './BottomBar';
 import makery from '../../images/makery.png'
 import { NavWrapper, Wrapper, Contain } from './TopNav.style';
@@ -7,8 +7,7 @@ import Media from 'react-responsive';
 import { mdMin } from '../../config/style-config'
 import ViewMobile from './response/ViewMobile'
 
-class TopNav extends Component {
-	render() {
+const TopNav = () => {
 		return (
 			<NavWrapper id="topnav">
 				<Suspense fallback={<div />}>
@@ -28,7 +27,6 @@ class TopNav extends Component {
 				</Suspense>
 			</NavWrapper>
 		);
-	}
 }
 
 export default TopNav;

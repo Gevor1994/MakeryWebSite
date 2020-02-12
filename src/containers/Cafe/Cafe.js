@@ -1,13 +1,10 @@
-import React, { Component } from 'react'
+import React  from 'react'
 import { Wrap, Wrapper } from './Cafe.style';
-import { connect } from 'react-redux';
 import svg from '../../images/svg.svg'
 import { Tabs } from 'antd';
 import portfolio from '../../images/portfolio.jpg';
-
 import desktop_bar from '../../images/desktop_bar.jpg';
 import mobile_bar from '../../images/mobile_bar.jpg';
-
 import partner1 from '../../images/partner1.png';
 import partner2 from '../../images/partner2.png';
 import partner3 from '../../images/partner3.png';
@@ -17,31 +14,26 @@ import mobileversion from '../../images/mobileversion.png'
 import Media from 'react-responsive';
 import { xsPlusMin } from '../../config/style-config';
 
-const partnersList = [partner1, partner2, partner3, partner4];
-const items = [1, 2, 3, 4];
+
 
 const { TabPane } = Tabs;
 
 
-export class Cafe extends Component {
-    state = {
-        responsive: { 
-            1400: { items: 4 }, 
-            1240: { items: 4 }, 
-            990: { items: 3 }, 
-            700: { items: 2 }, 
-            690: { items: 1 } 
-        }
-    };
-
-    handleOnDragStart = e => e.preventDefault();
-
-    render() {
-        const { responsive } = this.state;
+const Cafe = React.memo(
+    () => {
+        const responsive = {
+            1400: { items: 4 },
+            1240: { items: 4 },
+            990: { items: 3 },
+            700: { items: 2 },
+            690: { items: 1 }
+        };
+        const partnersList = [partner1, partner2, partner3, partner4];
+        const items = [1, 2, 3, 4];
         const partners = partnersList.map(partner => {
             return (
                 <div className='simple_parts'>
-                    <img key={partner} src={partner} onDragStart={this.handleOnDragStart} className="slider" alt={partner} />
+                    <img key={partner} src={partner} className="slider" alt={partner} />
                 </div>
             );
         });
@@ -95,11 +87,6 @@ export class Cafe extends Component {
             </Wrap>
         )
     }
-}
+)
 
-
-export default connect(
-    ({ App }) => ({
-        langID: App.get('langID'),
-    })
-)(Cafe);
+export default Cafe;

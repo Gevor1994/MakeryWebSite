@@ -1,17 +1,14 @@
-import React, { PureComponent,  lazy } from 'react';
+import React from 'react';
+import ViewMiddle from "./responsive/ViewMiddle/ViewMiddle";
 
-const ViewMiddle = lazy(() => import('./responsive/ViewMiddle'));
-
-class Footer extends PureComponent {
-
-  render() {
-    return (
-      <div>
-        <ViewMiddle />
-      </div>
-
-    )
-  };
-}
+const Footer = React.memo(
+    () =>{
+        return (
+            <div style={{width: '80%'}}>
+                <ViewMiddle/>
+            </div>
+        )
+    }
+)
 
 export default Footer;

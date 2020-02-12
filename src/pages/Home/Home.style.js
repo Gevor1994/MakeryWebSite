@@ -306,6 +306,9 @@ export const Banner = (styled.div`
             flex-direction: column-reverse;
             width: 100%;
         }
+        @media (max-width: 1020px) and (min-width: 992px){
+            width: 67%;
+        }
     }
 
     .wrap{
@@ -320,7 +323,7 @@ export const Banner = (styled.div`
     }
 
     h1{
-        width: 614px;
+        width: 625px;
         font-family: Roboto;
         font-style: normal;
         font-weight: 900;
@@ -328,16 +331,15 @@ export const Banner = (styled.div`
         line-height: 90px;
         color: #FFFFFF;
         text-align: right;
-        @media (max-width: 1220px){
-            width: 650px;
-        }
-        @media (max-width: 1200px){
+        @media (max-width: 1230px){
             font-size: 84px;
-            width: 470px;
             margin-right: 8px;
+            width: 480px;
         }
-        @media (max-width: 1012px){
-            width: 488px;
+        
+        @media (max-width: 1020px){
+            width: 500px;
+            text-align: center;
         }
         @media (max-width: 600px){
             width: 85%;

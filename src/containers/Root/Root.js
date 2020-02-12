@@ -1,48 +1,30 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {useState, useEffect} from 'react';
 import Routes from '../../router/routes';
-import TopNav from '../TopNav';
-import Footer from '../Footer';
+import RootWrapper, { ContentWrapper, Main, } from './Root.style.js';
+import Load from "../../Loading/Loading";
 
-import RootWrapper, { ContentWrapper, Main } from './Root.style.js';
+const RootContainer = React.memo(
+    () => {
+        const [isLoading, setIsLoading] = useState(true);
+        useEffect(() => {
+            setIsLoading(false)
+        }, []);
+        return (
+            <RootWrapper id="rootContainer">
+                {
+                    isLoading ? <Load/> : <RootWrapper id="rootContainer">
+                        <Main id="main">
+                            <ContentWrapper>
+                                <Routes/>
+                            </ContentWrapper>
+                        </Main>
+                    </RootWrapper>
+                }
+            </RootWrapper>
 
-class RootContainer extends Component {
+        );
+    }
+)
 
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      isFixed: false,
-    };
-  }
-
-  componentDidMount() {
-    document.addEventListener('scroll', this.handleScroll, true);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('scroll', this.handleScroll, true);
-  }
-
-  render() {
-
-    return (
-      <RootWrapper id="rootContainer">
-        <TopNav />
-        <Main id="main">
-          <ContentWrapper>
-            <Routes />
-          </ContentWrapper>
-          <Footer />
-        </Main>
-      </RootWrapper>
-    );
-  }
-}
-
-export default connect(
-  ({ App }) => ({
-    appStarted: App.get('appStarted'),
-    userInfo: App.get('userInfo'),
-    loading: App.get('loading'),
-  }), null)(RootContainer);
+export default RootContainer;

@@ -1,6 +1,8 @@
-import React, { Component, lazy, Suspense } from 'react';
+import React, { Suspense ,lazy } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
+const TopNav = lazy( () => import('../containers/TopNav'))
+const Footer = lazy(() => import ('../containers/Footer'));
 const Home = lazy(() => import('../pages/Home'));
 const Who = lazy(() => import('../pages/Who'));
 const What = lazy(() => import('../pages/What'));
@@ -10,23 +12,79 @@ const Contact = lazy(() => import('../pages/Contact'));
 const Portfolio = lazy(() => import('../pages/Portfolio'));
 const Cafe = lazy(() => import('../containers/Cafe'));
 
-class AppRouter extends Component {
-  render() {
+
+const AppRouter = (props) => {
     return (
-      < Suspense fallback={< div />}>
         <Switch>
-          <Route exact path="/:locale/" render={props => <Home {...props} />} />
-          <Route exact path="/:locale/who-are-we" render={props => <Who {...props} />} />
-          <Route exact path="/:locale/what-we-do" render={props => <What {...props} />} />
-          <Route exact path="/:locale/team" render={props => <Team {...props} />} />
-          <Route exact path="/:locale/careers" render={props => <Careers {...props} />} />
-          <Route exact path="/:locale/portfolio" render={props => <Portfolio {...props} />} />
-          <Route exact path="/:locale/contacts" render={props => <Contact {...props} />} />
-          <Route exact path="/:locale/bar" render={props => <Cafe {...props} />} />
+            <Suspense fallback={<div/>}>
+                <Route exact path="/en" render={props => (
+                    <Suspense fallback={<div />}>
+                        <TopNav/>
+                        <Home {...props} />
+                        <Footer/>
+                    </Suspense>
+                )}/>
+
+                <Route path="/en/who-are-we" render={props => (
+                    <Suspense fallback={<div/>}>
+                        <TopNav/>
+                        <Who {...props} />
+                        <Footer/>
+                    </Suspense>
+                )}/>
+
+                <Route path="/en/what-we-do" render={props => (
+                    <Suspense fallback={<div/>}>
+                        <TopNav/>
+                        <What {...props} />
+                        <Footer/>
+                    </Suspense>
+                )}/>
+
+                <Route path="/en/team" render={props => (
+                    <Suspense fallback={<div/>}>
+                        <TopNav/>
+                        <Team {...props} />
+                        <Footer/>
+                    </Suspense>
+                )}/>
+
+                <Route path="/en/careers" render={props => (
+                    <Suspense fallback={<div/>}>
+                        <TopNav/>
+                        <Careers {...props} />
+                        <Footer/>
+                    </Suspense>
+                )}/>
+
+                <Route path="/en/portfolio" render={props => (
+                    <Suspense fallback={<div/>}>
+                        <TopNav/>
+                        <Portfolio {...props} />
+                        <Footer/>
+                    </Suspense>
+                )}/>
+
+                <Route path="/en/contacts" render={props => (
+                    <Suspense fallback={<div/>}>
+                        <TopNav/>
+                        <Contact {...props} />
+                        <Footer/>
+                    </Suspense>
+                )}/>
+
+                <Route path="/en/bar" render={props => (
+                    <Suspense fallback={<div/>}>
+                        <TopNav/>
+                        <Cafe {...props} />
+                        <Footer/>
+                    </Suspense>
+                )}/>
+
+            </Suspense>
         </Switch>
-      </Suspense >
+
     );
-  }
 }
 
 export default AppRouter;

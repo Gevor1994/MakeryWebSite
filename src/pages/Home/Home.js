@@ -34,7 +34,6 @@ class Home extends Component {
         ],
         index: 0,
     }
-
     componentDidMount() {
         setInterval(_ => {
             if (this.state.index > this.state.arr.length - 2) {
@@ -217,8 +216,6 @@ class Home extends Component {
                         <div className="box-shadow"></div>
                     </div>
                 </div>
-
-
             </Wrap>
         );
     }

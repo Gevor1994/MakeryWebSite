@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React  from 'react';
 import { connect } from 'react-redux';
 import { Icon } from 'react-icons-kit';
 import { facebook } from 'react-icons-kit/fa/facebook';
@@ -16,10 +16,9 @@ const lang = {
 	copy: <IntlMessage id="footer.copyright" />,
 };
 
-class ViewMiddle extends PureComponent {
-
-	render() {
-		const { langID } = this.props;
+const ViewMiddle = React.memo(
+	(props) => {
+		const { langID } = props;
 		const whatURL = makeLocalURLwithLocale('/what-we-do', langID);
 		const whoURL = makeLocalURLwithLocale('/who-are-we', langID);
 		const careersURL = makeLocalURLwithLocale('/careers', langID);
@@ -41,10 +40,10 @@ class ViewMiddle extends PureComponent {
 						<div className="my_column">
 							<div className="column">
 								<p className="header-link">Be in touch</p>
-								<p className="p_style">(374) 94 89 89 100</p>
-								<p className="p_style">makery@somemail.com</p>
+								<p className="p_style">(+374) 98 14 56 61</p>
+								<p className="p_style">dev@makerylabs.com</p>
 								<p className="pre-header-link">For job applications</p>
-								<p className="p_style">jobsmakery@somemail.com</p>
+								<p className="p_style">job@makerylabs.com</p>
 							</div>
 							<div className="column">
 								<p className="header-link">Our Company</p>
@@ -73,8 +72,8 @@ class ViewMiddle extends PureComponent {
 				</ContainerWrap>
 			</Wrapper>
 		)
-	};
-}
+	}
+)
 
 export default connect(
 	({ App }) => ({

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React  from 'react'
 import { connect } from 'react-redux';
 import { Wrap, Wrapper, Works } from './Portfolio.style';
 import svg from '../../images/svg.svg'
@@ -15,9 +15,9 @@ import mobileversion from '../../images/mobileversion.png'
 import Media from 'react-responsive';
 import { xsPlusMin } from '../../config/style-config';
 
-export class Portfolio extends Component {
-    render() {
-        const { langID } = this.props;
+const Portfolio = React.memo(
+    (props) => {
+        const { langID } = props;
         const registerURL = makeLocalURLwithLocale('/bar', langID);
         return (
             <Wrap>
@@ -77,7 +77,7 @@ export class Portfolio extends Component {
             </Wrap>
         )
     }
-}
+)
 
 export default connect(
     ({ App }) => ({

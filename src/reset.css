@@ -42,7 +42,7 @@ table {
 	border-spacing: 0;
 }
 html, body {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto';
 }
 
 div:focus {
@@ -51,4 +51,43 @@ div:focus {
 
 .place-card {
 	display: none !important;
+}
+
+body {
+	margin: 0;
+	font-family: 'Roboto';
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 900;
+	src: url('fonts/Roboto-Black.ttf');
+}
+
+@font-face {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 300;
+	src: url('fonts/Roboto-Light.ttf');
+}
+
+@font-face {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: bold;
+	src: url('fonts/Roboto-Bold.ttf');
+}
+
+@font-face {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: normal;
+	src: url('fonts/Roboto-Regular.ttf');
+}
+
+code {
+	font-family: 'Roboto';
 }

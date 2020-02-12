@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import { Wrap, Wrapper } from './Careers.style';
 import svg from '../../images/svg.svg';
 import { Tabs } from 'antd';
 import careers from '../../images/careers.jpg'
-
 const { TabPane } = Tabs;
 
-class Careers extends Component {
-    render() {
+const Careers = React.memo(
+    () => {
         return (
             <Wrap>
                 <Wrapper>
@@ -178,10 +176,6 @@ class Careers extends Component {
             </Wrap>
         );
     }
-}
 
-export default connect(
-    ({ App }) => ({
-        langID: App.get('langID'),
-    })
-)(Careers);
+)
+export default Careers;

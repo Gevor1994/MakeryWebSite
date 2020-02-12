@@ -18,7 +18,7 @@ export const ContainerWrap = withTheme(styled.footer`
   justify-content: center;
 	align-items: center;
 	height: auto;
-  width: 80%;
+  width: 100%;
 
   .my_column{
     width: 55%;
