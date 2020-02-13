@@ -11,7 +11,6 @@ import { restoreData, storeData } from '../helpers/localStorageUtils';
 import { getLangID, checkIsRefreshToken } from '../helpers/locationUtils';
 import appActions from '../redux/app/actions';
 import Root from '../containers/Root';
-// const Root = lazy(() => import('../containers/Root'));
 
 class PublicRoutes extends PureComponent {
 
@@ -42,8 +41,6 @@ class PublicRoutes extends PureComponent {
 			<IntlProvider locale={locale} messages={messages} key={locale}>
 				<ConnectedRouter history={history}>
 					<Switch>
-						{/*<Route path="/arm" render={props => (<Root {...props} {...rootProps} />)}/>*/}
-						{/*<Route path="/ru" render={props => (<Root {...props} {...rootProps} />)}/>*/}
 						<Route path="/en" render={props => (<Root {...props} {...rootProps} />)}/>
 						<Route path="/" render={(props) => (<Redirect to={{pathname: `/${config.defaultLocale}`}}/>)}/>
 					</Switch>

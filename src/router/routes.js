@@ -1,7 +1,7 @@
-import React, { Suspense ,lazy } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React, {Suspense, lazy} from 'react';
+import {Switch, Route} from 'react-router-dom';
 
-const TopNav = lazy( () => import('../containers/TopNav'))
+const TopNav = lazy(() => import('../containers/TopNav'))
 const Footer = lazy(() => import ('../containers/Footer'));
 const Home = lazy(() => import('../pages/Home'));
 const Who = lazy(() => import('../pages/Who'));
@@ -11,14 +11,14 @@ const Careers = lazy(() => import('../pages/Careers'));
 const Contact = lazy(() => import('../pages/Contact'));
 const Portfolio = lazy(() => import('../pages/Portfolio'));
 const Cafe = lazy(() => import('../containers/Cafe'));
+const NotFound = lazy(() => import('../pages/NotFound'));
 
-
-const AppRouter = (props) => {
+const AppRouter = () => {
     return (
-        <Switch>
-            <Suspense fallback={<div/>}>
+        <Suspense fallback={<div/>}>
+            <Switch>
                 <Route exact path="/en" render={props => (
-                    <Suspense fallback={<div />}>
+                    <Suspense fallback={<div/>}>
                         <TopNav/>
                         <Home {...props} />
                         <Footer/>
@@ -81,9 +81,13 @@ const AppRouter = (props) => {
                     </Suspense>
                 )}/>
 
-            </Suspense>
-        </Switch>
-
+                <Route render={props => (
+                    <Suspense fallback={<div/>}>
+                        <NotFound {...props} />
+                    </Suspense>
+                )}/>
+            </Switch>
+        </Suspense>
     );
 }
 
