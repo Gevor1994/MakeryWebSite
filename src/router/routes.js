@@ -1,5 +1,6 @@
-import React, {Suspense, lazy} from 'react';
+import React, {Suspense, lazy, useEffect} from 'react';
 import {Switch, Route} from 'react-router-dom';
+import { history } from '../redux/store'
 
 const TopNav = lazy(() => import('../containers/TopNav'))
 const Footer = lazy(() => import ('../containers/Footer'));
@@ -13,7 +14,16 @@ const Portfolio = lazy(() => import('../pages/Portfolio'));
 const Cafe = lazy(() => import('../containers/Cafe'));
 const NotFound = lazy(() => import('../pages/NotFound'));
 
-const AppRouter = () => {
+const AppRouter = (props) => {
+    useEffect(() => {
+        const unlisten = history.listen(() => {
+            window.scrollTo(0, 0);
+        });
+        return () => {
+            unlisten();
+        };
+    }, []);
+
     return (
         <Suspense fallback={<div/>}>
             <Switch>
