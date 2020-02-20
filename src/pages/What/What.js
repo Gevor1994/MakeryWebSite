@@ -109,7 +109,7 @@ const  What = React.memo(
 
                     <Services>
                         <SecondList>
-                            <div className="prod-1">BUSINESS AUTOMASION SERVICES</div>
+                            <div className="prod-1">PLATFORM SOLUTION SERVICES</div>
                             <hr className='hr_style1'></hr>
                             <div className='wrap_news'>
                                 <div className='new'>

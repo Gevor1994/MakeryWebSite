@@ -547,3 +547,49 @@ export const Wrapper = (styled.div`
         object-fit: cover;
     }
 `)
+
+export const NoWork = (styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 170px 0; 
+    @media (max-width: 600px){
+         padding: 100px 0 ;
+    } 
+    
+    .no_work_container{
+        width: 75%;
+        display: flex;
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center;
+        @media (max-width: 600px){
+            width: 90%;
+        }
+    }
+    
+    h1{
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 36px;
+        line-height: 32px;
+        text-align: center;
+        letter-spacing: 0.1em;
+        color: #656565;
+        margin-bottom: 56px;
+    }
+    p{ 
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 32px;
+        text-align: center;
+        letter-spacing: 0.1em;
+        color: #656565;
+    }
+    
+`)
