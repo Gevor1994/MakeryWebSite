@@ -20,7 +20,6 @@ import img_4 from '../../images/img_4.png'
 import img_5 from '../../images/img_5.png'
 import {makeLocalURLwithLocale} from "../../helpers/locationUtils";
 import {Link} from 'react-router-dom'
-import {Translate} from "react-i18nify";
 
 
 class Home extends Component {
@@ -56,7 +55,7 @@ class Home extends Component {
                         <div className="svg_wrapper"><img src={svg} alt="lines"/></div>
                         <Banner>
                             <div className="bunner_wrap">
-                                <div className="divers_wrap"><p className='busy'><Translate value={'application.lil'} /></p>
+                                <div className="divers_wrap"><p className='busy'>BUSINESS AND DIGITAL COLLABORATION</p>
                                 </div>
                                 <div className='wrap'>
                                     <h1>YOU DREAM WE <span>MAKE</span></h1>

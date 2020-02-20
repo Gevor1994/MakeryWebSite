@@ -12,7 +12,6 @@ setTranslations({
             gev: 'George'
         },
     },
-
     arm: {
         application: {
             lil: 'Լիլիթ',
